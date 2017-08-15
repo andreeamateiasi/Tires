@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Tires.Models.Tire>
+
+@{
+    ViewBag.Title = "Tires";
+}
+
+<h2>Tires</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TireHeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TireWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TireDiameter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TireType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TireHeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TireWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TireDiameter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TireType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TireId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TireId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TireId })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Back to search","Search")|
+
+@Html.ActionLink("Back to list", "Index")
